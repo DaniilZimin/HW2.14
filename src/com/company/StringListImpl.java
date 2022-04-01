@@ -8,19 +8,24 @@ import java.util.Arrays;
 
 public class StringListImpl implements StringList {
 
+    private final int DEFAULT_CAPACITY = 10;
+
     public String[] strings;
     int size = 0;
 
     public StringListImpl() {
-        this.strings = new String[10];
+        this.strings = new String[DEFAULT_CAPACITY];
+    }
+
+    public StringListImpl(int capacity) {
+        this.strings = new String[capacity];
     }
 
     @Override
     public String add(String item) {
         checkItem(item);
         increaseArray();
-        strings[size] = item;
-        size++;
+        strings[size++] = item;
         return item;
     }
 
@@ -106,8 +111,7 @@ public class StringListImpl implements StringList {
     }
 
     @Override
-    public boolean equals(String[] otherList) {
-        checkItem(otherList[0]);
+    public boolean equals(StringList[] otherList) {
         if (strings.length != otherList.length) {
             return false;
         }
@@ -133,8 +137,7 @@ public class StringListImpl implements StringList {
 
     @Override
     public String[] toArray() {
-        String[] copy = new String[size];
-        copy = Arrays.copyOf(strings, size);
+        String[] copy = Arrays.copyOf(strings, size);
         return copy;
     }
 

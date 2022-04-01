@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        StringListImpl stringList = new StringListImpl();
+        StringList stringList = new StringListImpl();
 
         System.out.println(stringList.add("Медведь"));
         System.out.println(stringList.add("Рысь"));
@@ -24,7 +24,7 @@ public class Main {
         System.out.println(stringList.indexOf("Волк"));
         System.out.println(stringList.lastIndexOf("Жираф"));
         System.out.println(stringList.get(4));
-        System.out.println(stringList.size);
+        System.out.println(stringList.size());
         System.out.println(stringList.isEmpty());
         System.out.println(Arrays.toString(stringList.toArray()));
         stringList.clear();

@@ -20,7 +20,7 @@ public interface StringList {
 
     String get(int index);
 
-    boolean equals(String[] otherList);
+    boolean equals(StringList[] otherList);
 
     int size();
 
