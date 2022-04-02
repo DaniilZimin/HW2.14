@@ -4,7 +4,9 @@ import com.company.exception.AddNullException;
 import com.company.exception.OutOfRangeException;
 import com.company.exception.RemovingNonExistingElementException;
 
+import javax.xml.parsers.SAXParser;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class StringListImpl implements StringList {
 
@@ -111,11 +113,23 @@ public class StringListImpl implements StringList {
     }
 
     @Override
-    public boolean equals(StringList[] otherList) {
-        if (strings.length != otherList.length) {
-            return false;
+    public boolean equals(StringList otherList) {
+
+        if (this == otherList) {
+            return true;
         }
-        return Arrays.equals(strings, otherList);
+        if (otherList==null)
+            return false;
+
+
+        if (this.size != otherList.size())
+            return false;
+
+        for (int i = 0; i < size; i++) {
+            if (!Objects.equals(get(i), otherList.get(i)))
+                return false;
+        }
+        return true;
     }
 
     @Override
@@ -137,8 +151,7 @@ public class StringListImpl implements StringList {
 
     @Override
     public String[] toArray() {
-        String[] copy = Arrays.copyOf(strings, size);
-        return copy;
+        return Arrays.copyOf(strings, size);
     }
 
     private void checkItem(String item) {

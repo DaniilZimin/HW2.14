@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        int i = 7;
         StringList stringList = new StringListImpl();
 
         System.out.println(stringList.add("Медведь"));
