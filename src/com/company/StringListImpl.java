@@ -114,13 +114,12 @@ public class StringListImpl implements StringList {
 
     @Override
     public boolean equals(StringList otherList) {
-
         if (this == otherList) {
             return true;
         }
-        if (otherList==null)
-            return false;
 
+        if (otherList == null)
+            return false;
 
         if (this.size != otherList.size())
             return false;

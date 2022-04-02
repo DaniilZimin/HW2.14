@@ -2,7 +2,6 @@ package com.company;
 
 
 public interface StringList {
-
     // Добавление элемента.
     // Вернуть добавленный элемент
     // в качестве результата выполнения.
